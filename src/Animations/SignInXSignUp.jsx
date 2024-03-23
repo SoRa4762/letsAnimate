@@ -19,13 +19,6 @@ const SignInXSignUp = () => {
           <div></div>
           <div></div>
         </div>
-        {/* sign up */}
-        <div
-          className={`${isSignIn ? "hidden" : "flex"} h-full w-full bg-red-600`}
-        >
-          <div></div>
-          <div></div>
-        </div>
 
         <div className="h-24 w-full flex">
           <button className="h-full w-full bg-red-600" onClick={handleSwitch}>
