@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import SignInImage from "../assets/undraw_signin.svg";
+import SignUpImage from "../assets/undraw_signup.svg";
 
 const SignInXSignUp = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -31,15 +33,20 @@ const SignInXSignUp = () => {
                   isAnimate && "animate-fade"
                 } h-full w-full flex flex-col gap-4 justify-center items-center`}
               >
-                <h1 className="text-white text-lg md:text-xl lg:text-2xl font-bold">
-                  Already have an account?
-                </h1>
-                <button
-                  className={`h-12 w-24 bg-blue-200 font-bold rounded-lg ease-in-out duration-300 text-blue-950 hover:bg-blue-300`}
-                  onClick={handleSwitch}
-                >
-                  Sign In
-                </button>
+                <img
+                  className="w-11/12"
+                  src={SignUpImage}
+                  alt="sign up Image"
+                />
+                <p className="font-normal text-white">
+                  Already a Member?{" "}
+                  <span
+                    className="font-bold cursor-pointer"
+                    onClick={handleSwitch}
+                  >
+                    Sign In
+                  </span>
+                </p>
               </div>
             ) : (
               <div
@@ -47,15 +54,21 @@ const SignInXSignUp = () => {
                   isAnimate && "animate-fade"
                 } h-full w-full flex flex-col gap-4 justify-center items-center`}
               >
-                <h1 className="text-white text-lg md:text-xl lg:text-2xl font-bold">
-                  Don&apos;t Have an Account?
-                </h1>
-                <button
-                  className={`h-12 w-24 bg-blue-200 font-bold rounded-lg text-blue-950 ease-in-out duration-300 hover:bg-blue-300`}
-                  onClick={handleSwitch}
-                >
-                  Sign Up
-                </button>
+                <img
+                  className="w-11/12"
+                  src={SignInImage}
+                  alt="Sign In Image"
+                />
+                <p className="font-normal text-white">
+                  New Here?{" "}
+                  <span
+                    className="cursor-pointer font-bold"
+                    onClick={handleSwitch}
+                  >
+                    Sign Up
+                  </span>
+                </p>
+                <p className="text-white">Or sign in with .... ....</p>
               </div>
             )}
           </div>
