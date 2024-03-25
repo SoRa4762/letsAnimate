@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 
 const SignInXSignUp = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const [isAnimate, setIsAnimate] = useState(true);
+
   const handleSwitch = () => {
     setIsSignIn(!isSignIn);
-    // console.log(isSignIn);
+    setIsAnimate(true);
+    setTimeout(() => {
+      setIsAnimate(false);
+    }, 700);
   };
 
   return (
@@ -21,7 +26,11 @@ const SignInXSignUp = () => {
             } h-full flex-1 bg-yellow-500 duration-700`}
           >
             {isSignIn ? (
-              <div className="h-full w-full flex justify-center items-center">
+              <div
+                className={`${
+                  isAnimate && "animate-fade"
+                } h-full w-full flex justify-center items-center`}
+              >
                 <button
                   className={`h-12 w-16 bg-red-600`}
                   onClick={handleSwitch}
@@ -30,7 +39,11 @@ const SignInXSignUp = () => {
                 </button>
               </div>
             ) : (
-              <div className="h-full w-full flex justify-center items-center">
+              <div
+                className={`${
+                  isAnimate && "animate-fade"
+                } h-full w-full flex justify-center items-center`}
+              >
                 <button
                   className={`h-12 w-16 bg-blue-600`}
                   onClick={handleSwitch}
@@ -47,19 +60,19 @@ const SignInXSignUp = () => {
               isSignIn
                 ? "transform translate-x-0"
                 : "transform translate-x-[-100%]"
-            } animate-none flex-1 duration-700 bg-red-300`}
+            }
+            ${isAnimate && "animate-fade"}
+            flex-1 duration-700`}
           >
-            {useEffect(() => {
-              isSignIn ? (
-                <div className="animate-fade duration-700">
-                  <h1>Sign In Mate!</h1>
-                </div>
-              ) : (
-                <div className="animate-fade duration-700">
-                  <h1>Sign In Mate!</h1>
-                </div>
-              );
-            }, [isSignIn])}
+            {isSignIn ? (
+              <div className="">
+                <h1>Sign In Mate!</h1>
+              </div>
+            ) : (
+              <div className="">
+                <h1>Sign In Mate!</h1>
+              </div>
+            )}
           </div>
         </div>
 
