@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const SignInXSignUp = () => {
   const [isSignIn, setIsSignIn] = useState(true);
-  const [isAnimate, setIsAnimate] = useState(true);
+  const [isAnimate, setIsAnimate] = useState(false);
 
   const handleSwitch = () => {
     setIsSignIn(!isSignIn);
@@ -23,16 +23,19 @@ const SignInXSignUp = () => {
               isSignIn
                 ? "transform translate-x-0 rounded-r-[11rem] rounded-l-3xl"
                 : "transform translate-x-[100%] rounded-l-[11rem] rounded-r-3xl"
-            } h-full flex-1 bg-yellow-500 duration-700`}
+            } h-full flex-1 bg-blue-600 duration-700`}
           >
             {isSignIn ? (
               <div
                 className={`${
                   isAnimate && "animate-fade"
-                } h-full w-full flex justify-center items-center`}
+                } h-full w-full flex flex-col gap-4 justify-center items-center`}
               >
+                <h1 className="text-white text-lg md:text-xl lg:text-2xl font-bold">
+                  Already have an account?
+                </h1>
                 <button
-                  className={`h-12 w-16 bg-red-600`}
+                  className={`h-12 w-24 bg-blue-200 font-bold rounded-lg ease-in-out duration-300 text-blue-950 hover:bg-blue-300`}
                   onClick={handleSwitch}
                 >
                   Sign In
@@ -42,10 +45,13 @@ const SignInXSignUp = () => {
               <div
                 className={`${
                   isAnimate && "animate-fade"
-                } h-full w-full flex justify-center items-center`}
+                } h-full w-full flex flex-col gap-4 justify-center items-center`}
               >
+                <h1 className="text-white text-lg md:text-xl lg:text-2xl font-bold">
+                  Don&apos;t Have an Account?
+                </h1>
                 <button
-                  className={`h-12 w-16 bg-blue-600`}
+                  className={`h-12 w-24 bg-blue-200 font-bold rounded-lg text-blue-950 ease-in-out duration-300 hover:bg-blue-300`}
                   onClick={handleSwitch}
                 >
                   Sign Up
@@ -65,13 +71,172 @@ const SignInXSignUp = () => {
             flex-1 duration-700`}
           >
             {isSignIn ? (
-              <div className="">
-                <h1>Sign In Mate!</h1>
-              </div>
+              <form
+                // onSubmit={handleSubmit(onSubmit)}
+                className="h-full w-full flex flex-col items-center gap-2 md:gap-4 lg:gap-6 justify-center pl-8 pr-8 sm:pl-12 sm:pr-12"
+              >
+                <h1 className="text-blue-600 text-3xl md:text-4xl lg:text-5xl font-bold">
+                  Sign Up
+                </h1>
+
+                <div className="w-full">
+                  <input
+                    className="h-10 md:h-14 pl-4 w-full border-2 border-blue-600 rounded-md focus:border-blue-600"
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    id="username"
+                    // onChange={handleChange}
+                    // {...register("username")}
+                  />
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold pt-1">
+                  {errors.username?.message}
+                </p> */}
+                </div>
+
+                <div className="w-full">
+                  <input
+                    className="h-10 md:h-14 pl-4 w-full border-2 border-blue-600 rounded-md focus:border-blue-600"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    id="email"
+                    // onChange={handleChange}
+                    // {...register("email")}
+                  />
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold pt-1">
+                  {errors.email?.message}
+                </p> */}
+                </div>
+
+                {/*if you add eye button, make sure to turn the type to text and back */}
+                <div className="w-full">
+                  <input
+                    className="h-10 md:h-14 pl-4 w-full border-2 border-blue-600 rounded-md focus:border-blue-600"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    id="password"
+                    // onChange={handleChange}
+                    // {...register("password")}
+                  />
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold pt-1">
+                  {errors.password?.message}
+                </p> */}
+                </div>
+
+                <div className="w-full">
+                  <input
+                    className="h-10 md:h-14 pl-4 w-full border-2 border-blue-600 rounded-md focus:border-blue-600"
+                    type="password"
+                    placeholder="Confirm Password"
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    // onChange={handleChange}
+                    // {...register("confirmPassword")}
+                  />
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold pt-1">
+                  {errors.confirmPassword?.message}
+                </p> */}
+                </div>
+
+                <button
+                  type="submit"
+                  className="h-10 md:h-14 w-full bg-blue-600 rounded-md text-white font-bold text-lg ease-in-out duration-300 hover:bg-blue-800"
+                >
+                  Sign Up
+                </button>
+
+                <div className="flex flex-col items-center">
+                  <div className="flex gap-2">
+                    <input
+                      type="checkbox"
+                      name="condition"
+                      id="condition"
+                      // onChange={handleChange}
+                      // {...register("iAgree")}
+                    />
+                    <p>
+                      I agree to all{" "}
+                      <span className="text-blue-600">
+                        <a href="/termsconditions">Terms and Conditions</a>
+                      </span>
+                    </p>
+                  </div>
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold">
+                  {errors.iAgree?.message}
+                </p> */}
+                </div>
+              </form>
             ) : (
-              <div className="">
-                <h1>Sign In Mate!</h1>
-              </div>
+              <form
+                action="submit"
+                // onSubmit={handleSubmit(onSubmit)}
+                className="h-full w-full flex flex-col gap-2 md:gap-4 lg:gap-6 justify-center items-center pl-8 pr-8 sm:pl-12 sm:pr-12"
+              >
+                <h1 className="text-blue-600 text-3xl md:text-4xl lg:text-5xl font-bold">
+                  Sign In
+                </h1>
+
+                <div className="w-full">
+                  <input
+                    className="h-10 md:h-14 pl-4 w-full border-2 border-blue-600 rounded-md focus:border-blue-600"
+                    type="text"
+                    placeholder="Username"
+                    name="username"
+                    id="username"
+                    // {...register("username")}
+                    // onChange={handleChange}
+                    // value={signInValues["username"]}
+                  />
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold pt-1">
+                    {errors.username?.message}
+                  </p> */}
+                </div>
+
+                {/*if you add eye button, make sure to turn the type to text and back */}
+                <div className="w-full">
+                  <input
+                    className="h-10 md:h-14 pl-4 w-full border-2 border-blue-600 rounded-md focus:border-blue-600"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    id="password"
+                    // {...register("password")}
+                    // value={signInValues["password"]}
+                    // onChange={handleChange}
+                  />
+                  {/* <p className="text-xs lg:text-sm text-red-600 font-semibold pt-1">
+                    {errors.password?.message}
+                  </p> */}
+                </div>
+
+                <div className="flex gap-2 justify-start w-full">
+                  <input
+                    type="checkbox"
+                    name="condition"
+                    id="condition"
+                    // {...register("remember")}
+                    // value={signInValues["condition"]}
+                    // onChange={handleChange}
+                  />
+                  <p>Remember Me </p>
+                </div>
+
+                <button
+                  type="submit"
+                  className="h-10 md:h-14 w-full bg-blue-600 rounded-md text-white font-bold text-lg ease-in-out duration-300 hover:bg-blue-800"
+                >
+                  Sign In
+                </button>
+
+                <p className="font-normal">
+                  New Here?{" "}
+                  <span className="text-blue-600">
+                    <a href="/signup">Sign Up</a>
+                  </span>
+                </p>
+              </form>
             )}
           </div>
         </div>
