@@ -16,15 +16,15 @@ const SignInXSignUp = () => {
 
   return (
     <>
-      <div className="h-[100vh] w-full p-8 sm:p-12 md:p-16 lg:p-20 bg-slate-200">
+      <div className="h-[100vh] w-full sm:p-12 md:p-16 lg:p-20 bg-slate-200">
         {/* sign in/sign up*/}
-        <div className="h-full w-full flex bg-white rounded-[2rem] shadow-2xl">
+        <div className="h-full w-full flex bg-white sm:rounded-[2rem] shadow-2xl">
           {/* first half */}
           <div
             className={`${
               isSignIn
-                ? "transform translate-x-0 rounded-r-[11rem] rounded-l-3xl"
-                : "transform translate-x-[100%] rounded-l-[11rem] rounded-r-3xl"
+                ? "transform translate-x-0 rounded-r-[11rem] sm:rounded-l-3xl"
+                : "transform translate-x-[100%] rounded-l-[11rem] sm:rounded-r-3xl"
             } h-full flex-1 bg-blue-600 duration-700`}
           >
             {isSignIn ? (
