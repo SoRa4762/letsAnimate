@@ -5,6 +5,29 @@ import SignUpImage from "../assets/undraw_signup.svg";
 const SignInXSignUp = () => {
   const [isSignIn, setIsSignIn] = useState(true);
   const [isAnimate, setIsAnimate] = useState(false);
+  const [signUpData, setSignUpData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    iAgree: false,
+  });
+
+  const [signInData, setSignInData] = useState({
+    username: "",
+    password: "",
+    rememberMe: false,
+  });
+
+  const handleSignUpChange = (e) => {
+    const { name, value } = e.target;
+    setSignUpData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSignInChange = (e) => {
+    const { name, value } = e.target;
+    setSignInData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   const handleSwitch = () => {
     setIsSignIn(!isSignIn);
@@ -99,6 +122,8 @@ const SignInXSignUp = () => {
                     placeholder="Username"
                     name="username"
                     id="username"
+                    value={signUpData.username}
+                    onChange={handleSignUpChange}
                     // onChange={handleChange}
                     // {...register("username")}
                   />
@@ -114,6 +139,8 @@ const SignInXSignUp = () => {
                     placeholder="Email"
                     name="email"
                     id="email"
+                    value={signUpData.email}
+                    onChange={handleSignUpChange}
                     // onChange={handleChange}
                     // {...register("email")}
                   />
@@ -130,6 +157,8 @@ const SignInXSignUp = () => {
                     placeholder="Password"
                     name="password"
                     id="password"
+                    value={signUpData.password}
+                    onChange={handleSignUpChange}
                     // onChange={handleChange}
                     // {...register("password")}
                   />
@@ -145,6 +174,8 @@ const SignInXSignUp = () => {
                     placeholder="Confirm Password"
                     name="confirmPassword"
                     id="confirmPassword"
+                    value={signUpData.confirmPassword}
+                    onChange={handleSignUpChange}
                     // onChange={handleChange}
                     // {...register("confirmPassword")}
                   />
@@ -156,6 +187,10 @@ const SignInXSignUp = () => {
                 <button
                   type="submit"
                   className="h-10 md:h-14 w-full bg-blue-600 rounded-md text-white font-bold text-lg ease-in-out duration-300 hover:bg-blue-800"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log(signUpData);
+                  }}
                 >
                   Sign Up
                 </button>
@@ -164,8 +199,10 @@ const SignInXSignUp = () => {
                   <div className="flex gap-2">
                     <input
                       type="checkbox"
-                      name="condition"
-                      id="condition"
+                      name="iAgree"
+                      id="iAgree"
+                      value={signUpData["iAgree"]}
+                      onChange={handleSignUpChange}
                       // onChange={handleChange}
                       // {...register("iAgree")}
                     />
@@ -198,6 +235,8 @@ const SignInXSignUp = () => {
                     placeholder="Username"
                     name="username"
                     id="username"
+                    value={signInData["username"]}
+                    onChange={handleSignInChange}
                     // {...register("username")}
                     // onChange={handleChange}
                     // value={signInValues["username"]}
@@ -215,6 +254,8 @@ const SignInXSignUp = () => {
                     placeholder="Password"
                     name="password"
                     id="password"
+                    value={signInData["password"]}
+                    onChange={handleSignInChange}
                     // {...register("password")}
                     // value={signInValues["password"]}
                     // onChange={handleChange}
@@ -227,8 +268,11 @@ const SignInXSignUp = () => {
                 <div className="flex gap-2 justify-start w-full">
                   <input
                     type="checkbox"
-                    name="condition"
-                    id="condition"
+                    name="rememberMe"
+                    id="rememberMe"
+                    value={signInData["rememberMe"]}
+                    onClick={handleSignInChange}
+                    // onChange={handleSignInChange}
                     // {...register("remember")}
                     // value={signInValues["condition"]}
                     // onChange={handleChange}
@@ -239,6 +283,10 @@ const SignInXSignUp = () => {
                 <button
                   type="submit"
                   className="h-10 md:h-14 w-full bg-blue-600 rounded-md text-white font-bold text-lg ease-in-out duration-300 hover:bg-blue-800"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    console.log(signInData);
+                  }}
                 >
                   Sign In
                 </button>

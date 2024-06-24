@@ -7,7 +7,7 @@
 .ripple-main {
   height: 200px;
   width: 200px;
-  background: url(./mainBG.jpg);
+  background: url(../../assets//mainBG.jpg);
   background-size: cover;
   border: 1px solid #12b9ff;
   border-radius: 50%;
